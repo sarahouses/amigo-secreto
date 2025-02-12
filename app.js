@@ -1,9 +1,9 @@
 let listaNombres = [];
 let numeroMaximo = 5;
 
-function guardarNombres() {
+function agregarNombres() {
     let nombreInsertado = document.getElementById("amigo");
-    if (nombreInsertado =="") {
+    if (nombreInsertado ==="string") {
         alert ("Porfavor, inserte un nombre");
     }
     else {
