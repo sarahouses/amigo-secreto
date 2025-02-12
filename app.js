@@ -1,5 +1,5 @@
 let listaNombres = [];
-let numeroMaximo = 5;
+let numeroMaximo = parseInt(prompt("¿Cuantos amigos se van a sortear?"));
 let numeroDeNombres = 0;
 
 function agregarNombres() {
@@ -25,7 +25,7 @@ function agregarNombres() {
 function listaDeAmigos() {
     lista=[];
     console.log("se ejecutó listaDeAmigos");
-        for (let i = 0; i < listaNombres.length; i++) {
+        for (let i = 0; i < numeroMaximo; i++) {
             lista+= `<li>${listaNombres[i]}</li>`;
             actualizarListaAmigos()
     }
@@ -43,17 +43,19 @@ function actualizarListaAmigos() {
 }
 
 function sortearAmigo() {
-    if (listaNombres == [])
-    alert ("No hay nombres, favor de escribirlos");
-    else {
+    if (listaNombres == "") {
+     alert ("No insertó nombres, favor de hacerlo");
+        location.reload()}
+
+     else{
         let numeroSorteado = parseInt(Math.floor(Math.random()*listaNombres.length));
         let nombreSorteado = listaNombres[numeroSorteado];
         console.log(nombreSorteado);
 
-        lista = `<li>${nombreSorteado[numeroSorteado]}</li>`
+        lista = `<li>${nombreSorteado}</li>`
         let listaConAmigos = document.getElementById("listaAmigos");
         listaConAmigos.innerHTML = lista;
         let resultadoList = document.getElementById("resultado");
     resultadoList.innerHTML = `¡Felicidades ese es tu nombre sorteado!`;
     }
-    }
+}
